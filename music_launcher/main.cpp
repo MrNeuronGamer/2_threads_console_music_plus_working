@@ -18,33 +18,16 @@ int main(int argc, char* argv[])
 			HMODULE hModule = GetModuleHandleW(NULL);
 			WCHAR path[MAX_PATH];
 			GetModuleFileNameW(hModule, path, MAX_PATH);
-			std::ofstream Locate_cr;
-			Locate_cr.open("loc.txt", std::ios_base::ate);
+			char buffer[MAX_BUFF];
+			memset(buffer, 0, MAX_BUFF);
+			
+			
 
 			for (size_t i = 0; (char)path[i] !='\0'; i++)
 			{
-				Locate_cr << (char)path[i];
-			}
-			Locate_cr << '\n';
-			Locate_cr.close();
-
-			std::ifstream Get_loc;
-			Get_loc.open("loc.txt");
-
-			char buffer[MAX_BUFF];
-			memset(buffer, 0, MAX_BUFF);
-
-			{
-
-				size_t i = 0;
-				while (Get_loc >> buffer[i])
-				{
-					i++;
-				}
-				
-			}
-
-			Get_loc.close();
+				buffer[i] = (char)path[i];
+			}	
+							
 
 			*(strrchr(buffer, '\\'))='\0';
 
