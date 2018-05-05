@@ -42,11 +42,11 @@ int main(int argc, char* argv[])
 		}
 		if (omp_get_thread_num() == 1)
 		{
-			std::cout << " enjoy your music!";
+			std::cout << " please enter any short int: \n";
 			int a = 0;
 			std::cin >> a;
 			std::cout << " I love you man!\n";
-			std::cout << " this is your number + 45  -> " << a + 45 << std::endl;
+			std::cout << " this is your number + 45  -> " << a + 45 << std::endl << "So, now just wait till music ends ^^\n";
 		}
 
 #pragma omp barrier
